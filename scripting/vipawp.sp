@@ -28,7 +28,6 @@ public Plugin myinfo =
 };
 
 public void OnPluginStart() {
-	LoadTranslations("awpshop.phrases");
 	RegisterAdminCommands();
 	RegisterConsoleCommands();
 	HookEvent("player_death", Event_PlayerDeath);

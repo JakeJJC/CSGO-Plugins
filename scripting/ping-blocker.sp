@@ -36,6 +36,7 @@ public Action Command_Ping(int client, const char[] command, int args) {
     }
 	// Prints a message to the players chat letting them know that pinging has been disabled. 
     PrintToChat(client, "%s %s", MessagePrefix, DisabledMessage);
+	// Adds 1 to timesPrinted variable
     timesPrinted[client]++;
     return Plugin_Handled;
 }
