@@ -108,6 +108,7 @@ public Action Command_BuyAWP(int client, int args)
 	{
 		GivePlayerItem(client, "weapon_awp");
 		PrintToChat(client, "%s\x04 Here's your free AWP.", PREFIX);
+		return Plugin_Handled;
 	}
 	else if (creds >= 5)
 	{
@@ -115,6 +116,7 @@ public Action Command_BuyAWP(int client, int args)
 		if (GameRules_GetProp("m_totalRoundsPlayed") == 0 || GameRules_GetProp("m_totalRoundsPlayed") == halfTime)
 		{
 			PrintToChat(client, "%s\x04 You cannot buy an awp during pistol rounds.", PREFIX);
+			return Plugin_Handled;
 		}
 		else
 		{
@@ -122,6 +124,7 @@ public Action Command_BuyAWP(int client, int args)
 			credits[client] = addCredits;
 			GivePlayerItem(client, "weapon_awp");
 			PrintToChat(client, "%s\x04 You have been given an AWP in exchange for \x0B%d\x04 credits.", PREFIX, awpCost);
+			return Plugin_Handled;
 		}
 	}
 	else
@@ -130,10 +133,12 @@ public Action Command_BuyAWP(int client, int args)
 		if (neededCredits == 1)
 		{
 			PrintToChat(client, "%s\x04 You need another \x0B%d\x04 credit to buy an AWP!", PREFIX, neededCredits);
+			return Plugin_Handled;
 		}
 		else
 		{
 			PrintToChat(client, "%s\x04 You need another \x0B%d\x04 credits to buy an AWP!", PREFIX, neededCredits);
+			return Plugin_Handled;
 		}
 	}
 }
@@ -145,10 +150,12 @@ public Action Command_Credits(int client, int args)
 	if (addCredits == 1)
 	{
 		PrintToChat(client, "%s\x04 You have \x0B%d\x04 credit.", PREFIX, addCredits);
+		return Plugin_Handled;
 	}
 	else
 	{
 		PrintToChat(client, "%s\x04 You have \x0B%d\x04 credits.", PREFIX, addCredits);
+		return Plugin_Handled;
 	}
 }
 
